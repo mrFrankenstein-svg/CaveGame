@@ -23,6 +23,7 @@ public class CaveCreator : MonoBehaviour
 	public int caveLong;	// задаём длинну пещеры
 
 
+	public int numberOfWallSpawnPoints;
 	public int I=0;	//счётчик длинны пещеры
 	GameObject Instantiat;	//надо подумать как без этого
 
@@ -94,30 +95,26 @@ public class CaveCreator : MonoBehaviour
 
 
 				//Это проверка и надо она только сейчас (24.05.2021 22:17)
-						   	var bounds = Instantiat.GetComponent<Renderer>().bounds;		//штука для нахождения центра и длинны
-						    Debug.Log(bounds);
-
-
-
-
-
-
+						    if(Instantiat.GetComponent<Renderer>())
+						    {
+						   		var bounds = Instantiat.GetComponent<Renderer>().bounds;		//штука для нахождения центра и длинны
+						    	Debug.Log(bounds);
+						    	/*
+						    	var Cube = new GameObject();
+            					Cube.transform.position =bounds.center;		//эта хрень ставит пустышку в центре
+            					*/
+							}
 
 
 						    /*Следуюцая часть нужна для того, чтобы переименовать устанавливаемый обьект.
 							Возможно это не нужно будет для готового варианта, но пока пусть будет*/
 							//////////////////////////////////////////////////////////////////////////
 
-
-
 						    spawnedObj[I]=Instantiat;		//записываем установленный кусочек в массив
 						    string nam=I.ToString();		//переводим цифры в буквы
 						    spawnedObj[I].name= nam+ " " +spawnedObj[I].name ;		//переименовываем установленный кусочек в номер
 
 							//////////////////////////////////////////////////////////////////////////
-
-
-
 
 
 					    
@@ -155,6 +152,7 @@ public class CaveCreator : MonoBehaviour
 					        	spawnedObj[I].tag="forOccluding";		        
 					        	Destroy(spawnedObj[I].transform.Find("box").gameObject);		//удаляем уже ненужный квадрат
 					        	Destroy(spawn);	//удаляем точку спавна
+					        	CreateObjectsOnSurface(spawnedObj[I],florSpawnObjects,numberOfWallSpawnPoints);		//Добавляем к обьекту скрипт, который делает точки на стенах
 					        	I++;	//прибавляем 1 к счётчику
 					        }
 					    }
@@ -235,6 +233,13 @@ public class CaveCreator : MonoBehaviour
 			  }
     }
 
+
+    void CreateObjectsOnSurface( GameObject processedObject, GameObject[] objectsToAdd, int numberOfObjectsToAdd)
+    {
+  		processedObject.AddComponent<SpawningOnTheSurface>();		//добавляем отекту скрипт
+  		processedObject.GetComponent<SpawningOnTheSurface>().numberOfSpawnPoints=numberOfObjectsToAdd;		//задаём значение в скрипте
+  		processedObject.GetComponent<SpawningOnTheSurface>().оbjectsForAddOnSurface=objectsToAdd;		//передаём обьекты в скрипт
+    }
 
 
 

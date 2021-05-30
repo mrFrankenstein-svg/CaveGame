@@ -775,6 +775,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4894579685504220878, guid: 667443fed844d4745bc94704a18e9855,
         type: 3}
+    - target: {fileID: 9077434528072777350, guid: f67079b663154b540b49c3e288d0e92e,
+        type: 3}
+      propertyPath: caveLong
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077434528072777350, guid: f67079b663154b540b49c3e288d0e92e,
+        type: 3}
+      propertyPath: numberOfWallSpawnPoints
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 9077434528072777351, guid: f67079b663154b540b49c3e288d0e92e,
         type: 3}
       propertyPath: m_Enabled

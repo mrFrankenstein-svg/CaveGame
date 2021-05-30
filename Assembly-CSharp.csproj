@@ -87,6 +87,8 @@
      <Compile Include="Assets\Scripts\OcclusionCamera.cs" />
      <Compile Include="Assets\Scripts\OcclusionGameObject.cs" />
      <Compile Include="Assets\Scripts\OcclusionGameObject2.cs" />
+     <Compile Include="Assets\Scripts\SpawningOnTheSurface.cs" />
+     <Compile Include="Assets\Scripts\SpawnintOnTheWalls.cs" />
      <Compile Include="Assets\Scripts\StoneCreate.cs" />
      <Compile Include="Assets\Scripts\targ.cs" />
      <None Include="Assets\InstantOC\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
